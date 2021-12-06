@@ -8,10 +8,14 @@
 
   <ItemGroup>
     <None Remove="Inputs\2021\Day01.txt" />
+    <None Remove="Inputs\2021\Day02.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Inputs\2021\Day01.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Inputs\2021\Day02.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

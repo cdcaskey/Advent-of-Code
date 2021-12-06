@@ -1,0 +1,57 @@
+﻿using AdventOfCode._2021;
+using Moq;
+using NUnit.Framework;
+using Shouldly;
+
+namespace AdventOfCode.Tests._2021
+{
+    [TestFixture]
+    public class Day02Tests
+    {
+        private Mock<IInputLoader> loader;
+
+        [SetUp]
+        public void Setup()
+        {
+            loader = new Mock<IInputLoader>();
+            loader.Setup(x => x.LoadArray<string>(It.IsAny<string>(), It.IsAny<string>()))
+                  .Returns(new string[]
+                  {
+                      "forward 5",
+                      "down 5",
+                      "forward 8",
+                      "up 3",
+                      "down 8",
+                      "forward 2"
+                  });
+        }
+
+        [Test]
+        public void PartA()
+        {
+            // Arrange
+            CreateSut();
+
+            // Act
+            var result = Day02.PartA();
+
+            // Assert
+            result.ShouldBe(150);
+        }
+
+        [Test]
+        public void PartB()
+        {
+            // Arrange
+            CreateSut();
+
+            // Act
+            var result = Day02.PartB();
+
+            // Assert
+            result.ShouldBe(900);
+        }
+
+        private Day02 CreateSut() => new Day02(loader.Object);
+    }
+}
