@@ -40,10 +40,10 @@ namespace AdventOfCode.Tests._2021
         public void PartA()
         {
             // Arrange
-            CreateSut();
+            var sut = CreateSut();
 
             // Act
-            var result = Day04.PartA();
+            var result = sut.PartA();
 
             // Assert
             result.ShouldBe(4512);
@@ -53,10 +53,10 @@ namespace AdventOfCode.Tests._2021
         public void PartB()
         {
             // Arrange
-            CreateSut();
+            var sut = CreateSut();
 
             // Act
-            var result = Day04.PartB();
+            var result = sut.PartB();
 
             // Assert
             result.ShouldBe(1924);

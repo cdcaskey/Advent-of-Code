@@ -6,37 +6,13 @@ namespace AdventOfCode._2021
 {
     public class Day05 : CodeChallenge
     {
-        private const string inputLocation = "Inputs\\2021\\Day05.txt";
-
         public Day05(IInputLoader loader) : base(loader) { }
 
-        public static void Main()
-        {
-            while (true)
-            {
-                Console.Write("Part A or B? (or 'q' to quit): ");
+        public override int Year => 2021;
 
-                switch(Console.ReadLine().ToUpper())
-                {
-                    case "A":
-                        Console.WriteLine($"Result: {PartA()}");
-                        break;
+        public override int Day => 5;
 
-                    case "B":
-                        Console.WriteLine($"Result: {PartB()}");
-                        break;
-
-                    case "Q":
-                        return;
-
-                    default:
-                        Console.Write("Invalid Input - ");
-                        break;
-                }
-            }
-        }
-
-        public static int PartA()
+        public override long PartA()
         {
             var lines = ParseLines(out var maxX, out var maxY);
             var grid = new int[maxX, maxY];
@@ -74,7 +50,7 @@ namespace AdventOfCode._2021
             return overlaps;
         }
 
-        public static int PartB()
+        public override long PartB()
         {
             var lines = ParseLines(out var maxX, out var maxY);
             var grid = new int[maxX, maxY];
@@ -132,7 +108,7 @@ namespace AdventOfCode._2021
             return overlaps;
         }
 
-        private static List<Line> ParseLines(out int maxX, out int maxY)
+        private List<Line> ParseLines(out int maxX, out int maxY)
         {
             var input = inputLoader.LoadInput(inputLocation);
             var lines = new List<Line>();
@@ -157,8 +133,6 @@ namespace AdventOfCode._2021
 
             return lines;
         }
-
-
 
         private class Line
         {

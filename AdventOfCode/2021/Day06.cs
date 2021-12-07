@@ -8,41 +8,17 @@ namespace AdventOfCode._2021
 {
     public class Day06 : CodeChallenge
     {
-        private const string inputLocation = "Inputs\\2021\\Day06.txt";
-
         public Day06(IInputLoader loader) : base(loader) { }
 
-        public static void Main()
-        {
-            while (true)
-            {
-                Console.Write("Part A or B? (or 'q' to quit): ");
+        public override int Year => 2021;
 
-                switch (Console.ReadLine().ToUpper())
-                {
-                    case "A":
-                        Console.WriteLine($"Result: {PartA()}");
-                        break;
+        public override int Day => 6;
 
-                    case "B":
-                        Console.WriteLine($"Result: {PartB()}");
-                        break;
+        public override long PartA() => Simulate(80);
 
-                    case "Q":
-                        return;
+        public override long PartB() => Simulate(256);
 
-                    default:
-                        Console.Write("Invalid Input - ");
-                        break;
-                }
-            }
-        }
-
-        public static long PartA() => Simulate(80);
-
-        public static long PartB() => Simulate(256);
-
-        private static long Simulate(int days)
+        private long Simulate(int days)
         {
             var fish = new Dictionary<int, long>();
             for (var i = 0; i <= 8; i++)

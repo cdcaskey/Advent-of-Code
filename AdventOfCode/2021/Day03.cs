@@ -5,37 +5,13 @@ namespace AdventOfCode._2021
 {
     public class Day03 : CodeChallenge
     {
-        private const string inputLocation = "Inputs\\2021\\Day03.txt";
-
         public Day03(IInputLoader loader) : base(loader) { }
 
-        public static void Main()
-        {
-            while (true)
-            {
-                Console.Write("Part A or B? (or 'q' to quit): ");
+        public override int Year => 2021;
 
-                switch(Console.ReadLine().ToUpper())
-                {
-                    case "A":
-                        Console.WriteLine($"Result: {PartA()}");
-                        break;
+        public override int Day => 3;
 
-                    case "B":
-                        Console.WriteLine($"Result: {PartB()}");
-                        break;
-
-                    case "Q":
-                        return;
-
-                    default:
-                        Console.Write("Invalid Input - ");
-                        break;
-                }
-            }
-        }
-
-        public static int PartA()
+        public override long PartA()
         {
             var report = inputLoader.LoadArray<string>(inputLocation);
 
@@ -58,7 +34,7 @@ namespace AdventOfCode._2021
             return gammaValue * epsilonValue;
         }
 
-        public static int PartB()
+        public override long PartB()
         {
             // Calculate Oxygen Generator Rating
             var report = inputLoader.LoadArray<string>(inputLocation).ToList();

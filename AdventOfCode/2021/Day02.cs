@@ -4,37 +4,13 @@ namespace AdventOfCode._2021
 {
     public class Day02 : CodeChallenge
     {
-        private const string inputLocation = "Inputs\\2021\\Day02.txt";
-
         public Day02(IInputLoader loader) : base(loader) { }
 
-        public static void Main()
-        {
-            while (true)
-            {
-                Console.Write("Part A or B? (or 'q' to quit): ");
+        public override int Year => 2021;
 
-                switch(Console.ReadLine().ToUpper())
-                {
-                    case "A":
-                        Console.WriteLine($"Result: {PartA()}");
-                        break;
+        public override int Day => 2;
 
-                    case "B":
-                        Console.WriteLine($"Result: {PartB()}");
-                        break;
-
-                    case "Q":
-                        return;
-
-                    default:
-                        Console.Write("Invalid Input - ");
-                        break;
-                }
-            }
-        }
-
-        public static int PartA()
+        public override long PartA()
         {
             var input = inputLoader.LoadArray<string>(inputLocation);
             var instructions = ParseInstructions(input);
@@ -62,7 +38,7 @@ namespace AdventOfCode._2021
             return horizontal * depth;
         }
 
-        public static int PartB()
+        public override long PartB()
         {
             var input = inputLoader.LoadArray<string>(inputLocation);
             var instructions = ParseInstructions(input);
