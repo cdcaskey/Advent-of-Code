@@ -6,37 +6,13 @@ namespace AdventOfCode._2021
 {
     public class Day04 : CodeChallenge
     {
-        private const string inputLocation = "Inputs\\2021\\Day04.txt";
-
         public Day04(IInputLoader loader) : base(loader) { }
 
-        public static void Main()
-        {
-            while (true)
-            {
-                Console.Write("Part A or B? (or 'q' to quit): ");
+        public override int Year => 2021;
 
-                switch(Console.ReadLine().ToUpper())
-                {
-                    case "A":
-                        Console.WriteLine($"Result: {PartA()}");
-                        break;
+        public override int Day => 4;
 
-                    case "B":
-                        Console.WriteLine($"Result: {PartB()}");
-                        break;
-
-                    case "Q":
-                        return;
-
-                    default:
-                        Console.Write("Invalid Input - ");
-                        break;
-                }
-            }
-        }
-
-        public static int PartA()
+        public override long PartA()
         {
             var input = inputLoader.LoadInput(inputLocation);
             var drawnNumbers = ParseDrawnNumbers(input);
@@ -57,7 +33,7 @@ namespace AdventOfCode._2021
             throw new Exception("Unable to find a winning board.");
         }
 
-        public static int PartB()
+        public override long PartB()
         {
             var input = inputLoader.LoadInput(inputLocation);
             var drawnNumbers = ParseDrawnNumbers(input);
