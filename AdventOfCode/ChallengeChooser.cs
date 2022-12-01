@@ -17,6 +17,12 @@ namespace AdventOfCode
         {
             ChristmasHeader("AdventOfCode");
 
+            if (OfferTodaysChallenge())
+            {
+                Console.Clear();
+                ChristmasHeader("AdventOfCode");
+            }
+            
             while (true)
             {
                 var year = SelectYear();
@@ -38,6 +44,31 @@ namespace AdventOfCode
                     challenge.Run();
                 }
             }
+        }
+
+        /// <summary>
+        /// If the challenge for today has been written, offer it as a shortcut.
+        /// </summary>
+        /// <returns>Whether today's challenge was offered.</returns>
+        private bool OfferTodaysChallenge()
+        {
+            var today = DateTime.Now.Date;
+            var todaysChallenge = challenges.FirstOrDefault(x => x.Year == today.Year && x.Day == today.Day);
+            if (todaysChallenge != null)
+            {
+                Console.Write("Run today's challenge? ('y' or 'n'): ");
+                var run = Console.ReadLine();
+
+                if (run.ToUpper().StartsWith('Y'))
+                {
+                    todaysChallenge.Run();
+                }
+
+                Console.WriteLine();
+                return true;
+            }
+
+            return false;
         }
 
         private int? SelectYear()
