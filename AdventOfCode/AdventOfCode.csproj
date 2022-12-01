@@ -72,4 +72,10 @@
     <Resource Include="Inputs\2020\Day01.txt" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Inputs\2022\Day01.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
