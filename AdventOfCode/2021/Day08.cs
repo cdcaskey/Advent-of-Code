@@ -3,13 +3,11 @@ using System.Linq;
 
 namespace AdventOfCode._2021
 {
-    public class Day08 : CodeChallenge
+    public class Day08(IInputLoader loader) : CodeChallenge(loader)
     {
-        public Day08(IInputLoader loader) : base(loader) { }
-
         public override long PartA()
         {
-            var input = inputLoader.LoadArray<string>(inputLocation);
+            var input = inputLoader.LoadArray<string>(InputLocation);
 
             var counter = 0;
             foreach (var line in input)
@@ -31,7 +29,7 @@ namespace AdventOfCode._2021
 
         public override long PartB()
         {
-            var input = inputLoader.LoadArray<string>(inputLocation);
+            var input = inputLoader.LoadArray<string>(InputLocation);
 
             var outputs = 0;
             foreach (var line in input)
@@ -42,7 +40,7 @@ namespace AdventOfCode._2021
             return outputs;
         }
 
-        private int CalculateDigits(string line)
+        private static int CalculateDigits(string line)
         {
             var pattern = line.Split('|');
             var inputSegments = pattern[0].Split(' ', StringSplitOptions.RemoveEmptyEntries);
@@ -120,7 +118,7 @@ namespace AdventOfCode._2021
             return ParseNumberFromSegments(outputSegments, signalWire);
         }
 
-        private int ParseNumberFromSegments(string[] outputSegments, char[] wires)
+        private static int ParseNumberFromSegments(string[] outputSegments, char[] wires)
         {
             var digits = string.Empty;
             foreach (var segment in outputSegments)
@@ -134,51 +132,20 @@ namespace AdventOfCode._2021
                     }
                 }
 
-                switch (litSegments)
+                digits += litSegments switch
                 {
-                    case 0b1110111:
-                        digits += "0";
-                        break;
-
-                    case 0b0010010:
-                        digits += "1";
-                        break;
-
-                    case 0b1011101:
-                        digits += "2";
-                        break;
-
-                    case 0b1011011:
-                        digits += "3";
-                        break;
-
-                    case 0b0111010:
-                        digits += "4";
-                        break;
-
-                    case 0b1101011:
-                        digits += "5";
-                        break;
-
-                    case 0b1101111:
-                        digits += "6";
-                        break;
-
-                    case 0b1010010:
-                        digits += "7";
-                        break;
-
-                    case 0b1111111:
-                        digits += "8";
-                        break;
-
-                    case 0b1111011:
-                        digits += "9";
-                        break;
-
-                    default:
-                        throw new Exception("Unable to get a digit from this signal combo.");
-                }
+                    0b1110111 => "0",
+                    0b0010010 => "1",
+                    0b1011101 => "2",
+                    0b1011011 => "3",
+                    0b0111010 => "4",
+                    0b1101011 => "5",
+                    0b1101111 => "6",
+                    0b1010010 => "7",
+                    0b1111111 => "8",
+                    0b1111011 => "9",
+                    _ => throw new Exception("Unable to get a digit from this signal combo."),
+                };
             }
 
             return int.Parse(digits);

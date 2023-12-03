@@ -4,13 +4,11 @@ using System.Linq;
 
 namespace AdventOfCode._2021
 {
-    public class Day09 : CodeChallenge
+    public class Day09(IInputLoader loader) : CodeChallenge(loader)
     {
-        public Day09(IInputLoader loader) : base(loader) { }
-
         public override long PartA()
         {
-            var input = inputLoader.LoadArray<string>(inputLocation);
+            var input = inputLoader.LoadArray<string>(InputLocation);
 
             var map = PopulateMap(input);
 
@@ -21,7 +19,7 @@ namespace AdventOfCode._2021
 
         public override long PartB()
         {
-            var input = inputLoader.LoadArray<string>(inputLocation);
+            var input = inputLoader.LoadArray<string>(InputLocation);
 
             var map = PopulateMap(input);
             var lowPoints = CalculateLowPoints(map);
@@ -43,7 +41,7 @@ namespace AdventOfCode._2021
             return largestBasinScores;
         }
 
-        private int[,] PopulateMap(string[] input)
+        private static int[,] PopulateMap(string[] input)
         {
             var height = input.Length + 2;
             var width = input[0].Length + 2;
@@ -67,7 +65,7 @@ namespace AdventOfCode._2021
             return map;
         }
 
-        private (int X, int Y)[] CalculateLowPoints(int[,] map)
+        private static (int X, int Y)[] CalculateLowPoints(int[,] map)
         {
             var width = map.GetLength(0);
             var height = map.GetLength(1);
@@ -90,7 +88,7 @@ namespace AdventOfCode._2021
             return lowPoints.ToArray();
         }
 
-        private int CalculateBasinScore(int[,] map, int x, int y)
+        private static int CalculateBasinScore(int[,] map, int x, int y)
         {
             var basinPoints = new List<(int X, int Y)>();
 
@@ -99,7 +97,7 @@ namespace AdventOfCode._2021
             return basinPoints.Distinct().Count();
         }
 
-        private void FindBasinPoints(int[,] map, int x, int y, ref List<(int X, int Y)> basinPoints)
+        private static void FindBasinPoints(int[,] map, int x, int y, ref List<(int X, int Y)> basinPoints)
         {
             if (map[x,y] == 9)
             {

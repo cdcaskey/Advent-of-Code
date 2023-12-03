@@ -15,15 +15,15 @@ namespace AdventOfCode.Tests._2021
         {
             loader = new Mock<IInputLoader>();
             loader.Setup(x => x.LoadArray<string>(It.IsAny<string>(), It.IsAny<string>()))
-                  .Returns(new string[]
-                  {
+                  .Returns(
+                  [
                       "forward 5",
                       "down 5",
                       "forward 8",
                       "up 3",
                       "down 8",
                       "forward 2"
-                  });
+                  ]);
         }
 
         [Test]
@@ -52,6 +52,6 @@ namespace AdventOfCode.Tests._2021
             result.ShouldBe(900);
         }
 
-        private Day02 CreateSut() => new Day02(loader.Object);
+        private Day02 CreateSut() => new(loader.Object);
     }
 }

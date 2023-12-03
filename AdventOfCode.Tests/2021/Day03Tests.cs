@@ -15,8 +15,8 @@ namespace AdventOfCode.Tests._2021
         {
             loader = new Mock<IInputLoader>();
             loader.Setup(x => x.LoadArray<string>(It.IsAny<string>(), It.IsAny<string>()))
-                  .Returns(new string[]
-                  {
+                  .Returns(
+                  [
                       "00100",
                       "11110",
                       "10110",
@@ -29,7 +29,7 @@ namespace AdventOfCode.Tests._2021
                       "11001",
                       "00010",
                       "01010"
-                  });
+                  ]);
         }
 
         [Test]
@@ -58,6 +58,6 @@ namespace AdventOfCode.Tests._2021
             result.ShouldBe(230);
         }
 
-        private Day03 CreateSut() => new Day03(loader.Object);
+        private Day03 CreateSut() => new(loader.Object);
     }
 }

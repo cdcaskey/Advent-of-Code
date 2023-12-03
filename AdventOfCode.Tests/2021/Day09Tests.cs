@@ -15,14 +15,14 @@ namespace AdventOfCode.Tests._2021
         {
             loader = new Mock<IInputLoader>();
             loader.Setup(x => x.LoadArray<string>(It.IsAny<string>(), It.IsAny<string>()))
-                  .Returns(new string []
-                  {
+                  .Returns(
+                  [
                       "2199943210",
                       "3987894921",
                       "9856789892",
                       "8767896789",
                       "9899965678"
-                  });
+                  ]);
         }
 
         [Test]
@@ -51,6 +51,6 @@ namespace AdventOfCode.Tests._2021
             result.ShouldBe(1134);
         }
 
-        private Day09 CreateSut() => new Day09(loader.Object);
+        private Day09 CreateSut() => new(loader.Object);
     }
 }

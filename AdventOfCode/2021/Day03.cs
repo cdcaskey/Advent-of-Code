@@ -3,13 +3,11 @@ using System.Linq;
 
 namespace AdventOfCode._2021
 {
-    public class Day03 : CodeChallenge
+    public class Day03(IInputLoader loader) : CodeChallenge(loader)
     {
-        public Day03(IInputLoader loader) : base(loader) { }
-
         public override long PartA()
         {
-            var report = inputLoader.LoadArray<string>(inputLocation);
+            var report = inputLoader.LoadArray<string>(InputLocation);
 
             var gammaBits = string.Empty;
             var epsilonBits = string.Empty;
@@ -33,7 +31,7 @@ namespace AdventOfCode._2021
         public override long PartB()
         {
             // Calculate Oxygen Generator Rating
-            var report = inputLoader.LoadArray<string>(inputLocation).ToList();
+            var report = inputLoader.LoadArray<string>(InputLocation).ToList();
             for (var i = 0; report.Count > 1; i++)
             {
                 var bitAverage = report.Select(r => r[i])
@@ -47,7 +45,7 @@ namespace AdventOfCode._2021
             var oxygenRating = report.Single();
 
             // Calculate CO2 Scrubber Rating
-            report = inputLoader.LoadArray<string>(inputLocation).ToList();
+            report = [.. inputLoader.LoadArray<string>(InputLocation)];
             for (var i = 0; report.Count > 1; i++)
             {
                 var bitAverage = report.Select(r => r[i])

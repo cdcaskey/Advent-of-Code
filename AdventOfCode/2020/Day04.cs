@@ -4,13 +4,11 @@ using System.Text.RegularExpressions;
 
 namespace AdventOfCode._2020
 {
-    public class Day04 : CodeChallenge
+    public class Day04(IInputLoader loader) : CodeChallenge(loader)
     {
-        public Day04(IInputLoader loader) : base(loader) { }
-
         public override long PartA()
         {
-            var input = inputLoader.LoadArray<string>(inputLocation, "\r\n\r\n");
+            var input = inputLoader.LoadArray<string>(InputLocation, "\r\n\r\n");
             var fieldKeys = new string[] { "byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid" };
 
             var validPassports = 0;
@@ -36,7 +34,7 @@ namespace AdventOfCode._2020
 
         public override long PartB()
         {
-            var input = inputLoader.LoadArray<string>(inputLocation, "\r\n\r\n");
+            var input = inputLoader.LoadArray<string>(InputLocation, "\r\n\r\n");
             var keys = new Dictionary<string, Func<string, bool>>()
             {
                 { "byr", v => ValidateNumber(v, 1920, 2002) },
@@ -78,7 +76,7 @@ namespace AdventOfCode._2020
             return validPassports;
         }
 
-        private bool ValidateNumber(string input, int minValid, int maxValid)
+        private static bool ValidateNumber(string input, int minValid, int maxValid)
         {
             if (!int.TryParse(input, out var number))
             {
@@ -88,7 +86,7 @@ namespace AdventOfCode._2020
             return number >= minValid && number <= maxValid;
         }
 
-        private bool ValidateHeight(string input)
+        private static bool ValidateHeight(string input)
         {
             var height = Regex.Match(input, @"^(\d+)(cm|in)$");
             if (!height.Success)
@@ -96,17 +94,12 @@ namespace AdventOfCode._2020
                 return false;
             }
 
-            switch (height.Groups[2].Value)
+            return height.Groups[2].Value switch
             {
-                case "cm":
-                    return ValidateNumber(height.Groups[1].Value, 150, 193);
-
-                case "in":
-                    return ValidateNumber(height.Groups[1].Value, 59, 76);
-
-                default:
-                    return false;
-            }
+                "cm" => ValidateNumber(height.Groups[1].Value, 150, 193),
+                "in" => ValidateNumber(height.Groups[1].Value, 59, 76),
+                _ => false,
+            };
         }
     }
 }

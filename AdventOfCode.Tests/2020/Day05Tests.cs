@@ -15,13 +15,13 @@ namespace AdventOfCode.Tests._2020
         {
             loader = new Mock<IInputLoader>();
             loader.Setup(x => x.LoadArray<string>(It.IsAny<string>(), It.IsAny<string>()))
-                  .Returns(new string[]
-                  {
+                  .Returns(
+                  [
                       "BFFFBBFRRR",
                       "FFFBBBFRRR",
                       "BBFFBBFRLL",
                       "FBFBBFFRLR"
-                  });
+                  ]);
         }
 
         [Test]
@@ -37,6 +37,6 @@ namespace AdventOfCode.Tests._2020
             result.ShouldBe(820);
         }
 
-        private Day05 CreateSut() => new Day05(loader.Object);
+        private Day05 CreateSut() => new(loader.Object);
     }
 }

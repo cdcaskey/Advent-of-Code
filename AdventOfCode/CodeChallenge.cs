@@ -1,20 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode
 {
-    public abstract class CodeChallenge : ICodeChallenge
+    public abstract class CodeChallenge(IInputLoader loader) : ICodeChallenge
     {
-        protected IInputLoader inputLoader;
-
-        public CodeChallenge(IInputLoader loader)
-        {
-            inputLoader = loader;
-        }
+        protected IInputLoader inputLoader = loader;
 
         public virtual int Year
         {
@@ -38,7 +28,7 @@ namespace AdventOfCode
             }
         }
 
-        protected string inputLocation => $"Inputs\\{Year}\\Day{Day:00}.txt";
+        protected string InputLocation => $"Inputs\\{Year}\\Day{Day:00}.txt";
 
         public void Run()
         {
