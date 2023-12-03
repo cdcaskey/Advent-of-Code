@@ -2,7 +2,7 @@
 {
     public class Day01(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override long PartA()
+        public override object PartA()
         {
             var input = inputLoader.LoadArray<int>(InputLocation);
 
@@ -18,7 +18,7 @@
             return result;
         }
 
-        public override long PartB()
+        public override object PartB()
         {
             var input = inputLoader.LoadArray<int>(InputLocation);
 

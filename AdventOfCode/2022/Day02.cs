@@ -4,7 +4,7 @@ namespace AdventOfCode._2022
 {
     public class Day02(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override long PartA()
+        public override object PartA()
         {
             var input = inputLoader.LoadArray<string>(InputLocation);
 
@@ -20,7 +20,7 @@ namespace AdventOfCode._2022
             return score;
         }
 
-        public override long PartB()
+        public override object PartB()
         {
             var input = inputLoader.LoadArray<string>(InputLocation);
 

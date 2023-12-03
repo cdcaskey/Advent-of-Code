@@ -2,14 +2,14 @@
 {
     public class Day03(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override long PartA()
+        public override object PartA()
         {
             var slope = inputLoader.LoadArray<string>(InputLocation);
 
             return CalculateTrees(slope, 3, 1);
         }
 
-        public override long PartB()
+        public override object PartB()
         {
             var slope = inputLoader.LoadArray<string>(InputLocation);
 

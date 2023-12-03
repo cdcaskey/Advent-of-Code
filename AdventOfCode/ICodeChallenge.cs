@@ -8,8 +8,8 @@
 
         void Run();
 
-        long PartA();
+        object PartA();
 
-        long PartB();
+        object PartB();
     }
 }

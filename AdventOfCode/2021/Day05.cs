@@ -6,7 +6,7 @@ namespace AdventOfCode._2021
 {
     public class Day05(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override long PartA()
+        public override object PartA()
         {
             var lines = ParseLines(out var maxX, out var maxY);
             var grid = new int[maxX, maxY];
@@ -44,7 +44,7 @@ namespace AdventOfCode._2021
             return overlaps;
         }
 
-        public override long PartB()
+        public override object PartB()
         {
             var lines = ParseLines(out var maxX, out var maxY);
             var grid = new int[maxX, maxY];

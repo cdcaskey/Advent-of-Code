@@ -5,7 +5,7 @@ namespace AdventOfCode._2021
 {
     public class Day03(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override long PartA()
+        public override object PartA()
         {
             var report = inputLoader.LoadArray<string>(InputLocation);
 
@@ -28,7 +28,7 @@ namespace AdventOfCode._2021
             return gammaValue * epsilonValue;
         }
 
-        public override long PartB()
+        public override object PartB()
         {
             // Calculate Oxygen Generator Rating
             var report = inputLoader.LoadArray<string>(InputLocation).ToList();

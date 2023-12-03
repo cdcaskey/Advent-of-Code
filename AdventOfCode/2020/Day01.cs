@@ -4,7 +4,7 @@ namespace AdventOfCode._2020
 {
     public class Day01(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override long PartA()
+        public override object PartA()
         {
             var input = inputLoader.LoadArray<int>(InputLocation);
 
@@ -26,7 +26,7 @@ namespace AdventOfCode._2020
             throw new Exception("Couldn't find 2 values that add to 2020.");
         }
 
-        public override long PartB()
+        public override object PartB()
         {
             var input = inputLoader.LoadArray<int>(InputLocation);
 

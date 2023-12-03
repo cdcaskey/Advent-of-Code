@@ -5,9 +5,9 @@ namespace AdventOfCode._2021
 {
     public class Day06(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override long PartA() => Simulate(80);
+        public override object PartA() => Simulate(80);
 
-        public override long PartB() => Simulate(256);
+        public override object PartB() => Simulate(256);
 
         private long Simulate(int days)
         {

@@ -6,7 +6,7 @@ namespace AdventOfCode._2021
 {
     public class Day04(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override long PartA()
+        public override object PartA()
         {
             var input = inputLoader.LoadInput(InputLocation);
             var drawnNumbers = ParseDrawnNumbers(input);
@@ -27,7 +27,7 @@ namespace AdventOfCode._2021
             throw new Exception("Unable to find a winning board.");
         }
 
-        public override long PartB()
+        public override object PartB()
         {
             var input = inputLoader.LoadInput(InputLocation);
             var drawnNumbers = ParseDrawnNumbers(input);
