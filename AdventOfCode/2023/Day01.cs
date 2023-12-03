@@ -23,10 +23,6 @@ namespace AdventOfCode._2023
 
         public Day01(IInputLoader loader) : base(loader) { }
 
-        public override int Year => 2023;
-
-        public override int Day => 1;
-
         public override long PartA()
         {
             var input = inputLoader.LoadArray<string>(inputLocation);

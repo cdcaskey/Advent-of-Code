@@ -4,10 +4,6 @@
     {
         public Day03(IInputLoader loader) : base(loader) { }
 
-        public override int Year => 2020;
-
-        public override int Day => 3;
-
         public override long PartA()
         {
             var slope = inputLoader.LoadArray<string>(inputLocation);

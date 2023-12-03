@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,9 +16,27 @@ namespace AdventOfCode
             inputLoader = loader;
         }
 
-        public abstract int Year { get; }
+        public virtual int Year
+        {
+            get
+            {
+                var classNamespace = GetType().Namespace;
+                var number = classNamespace[^4..];
 
-        public abstract int Day { get; }
+                return int.Parse(number);
+            }
+        }
+
+        public virtual int Day
+        {
+            get
+            {
+                var className = GetType().Name;
+                var number = className[^2..];
+
+                return int.Parse(number);
+            }
+        }
 
         protected string inputLocation => $"Inputs\\{Year}\\Day{Day:00}.txt";
 

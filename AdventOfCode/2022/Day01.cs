@@ -7,10 +7,6 @@ namespace AdventOfCode._2022
     {
         public Day01(IInputLoader loader) : base(loader) { }
 
-        public override int Year => 2022;
-
-        public override int Day => 1;
-
         public override long PartA()
         {
             var input = inputLoader.LoadListOfArrays<int>(inputLocation);

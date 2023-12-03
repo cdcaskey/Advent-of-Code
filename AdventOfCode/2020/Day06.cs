@@ -8,10 +8,6 @@ namespace AdventOfCode._2020
     {
         public Day06(IInputLoader loader) : base(loader) { }
 
-        public override int Year => 2020;
-
-        public override int Day => 6;
-
         public override long PartA()
         {
             var input = inputLoader.LoadArray<string>(inputLocation, "\r\n\r\n");

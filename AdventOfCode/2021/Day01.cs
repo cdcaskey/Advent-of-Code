@@ -4,10 +4,6 @@
     {
         public Day01(IInputLoader loader) : base(loader) { }
 
-        public override int Year => 2021;
-
-        public override int Day => 1;
-
         public override long PartA()
         {
             var input = inputLoader.LoadArray<int>(inputLocation);
