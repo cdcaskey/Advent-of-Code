@@ -6,7 +6,7 @@ namespace AdventOfCode._2020
 {
     public class Day04(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override long PartA()
+        public override object PartA()
         {
             var input = inputLoader.LoadArray<string>(InputLocation, "\r\n\r\n");
             var fieldKeys = new string[] { "byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid" };
@@ -32,7 +32,7 @@ namespace AdventOfCode._2020
             return validPassports;
         }
 
-        public override long PartB()
+        public override object PartB()
         {
             var input = inputLoader.LoadArray<string>(InputLocation, "\r\n\r\n");
             var keys = new Dictionary<string, Func<string, bool>>()

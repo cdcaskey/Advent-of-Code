@@ -5,7 +5,7 @@ namespace AdventOfCode._2022
 {
     public class Day01(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override long PartA()
+        public override object PartA()
         {
             var input = inputLoader.LoadListOfArrays<int>(InputLocation);
 
@@ -18,7 +18,7 @@ namespace AdventOfCode._2022
             return elfCalories.Max();
         }
 
-        public override long PartB()
+        public override object PartB()
         {
             var input = inputLoader.LoadListOfArrays<int>(InputLocation);
 

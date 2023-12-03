@@ -4,7 +4,7 @@ namespace AdventOfCode._2021
 {
     public class Day02(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override long PartA()
+        public override object PartA()
         {
             var input = inputLoader.LoadArray<string>(InputLocation);
             var instructions = ParseInstructions(input);
@@ -32,7 +32,7 @@ namespace AdventOfCode._2021
             return horizontal * depth;
         }
 
-        public override long PartB()
+        public override object PartB()
         {
             var input = inputLoader.LoadArray<string>(InputLocation);
             var instructions = ParseInstructions(input);

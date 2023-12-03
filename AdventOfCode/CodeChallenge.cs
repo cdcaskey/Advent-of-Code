@@ -64,8 +64,8 @@ namespace AdventOfCode
             }
         }
 
-        public abstract long PartA();
+        public abstract object PartA();
 
-        public abstract long PartB();
+        public abstract object PartB();
     }
 }

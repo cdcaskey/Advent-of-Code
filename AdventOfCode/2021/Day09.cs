@@ -6,7 +6,7 @@ namespace AdventOfCode._2021
 {
     public class Day09(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override long PartA()
+        public override object PartA()
         {
             var input = inputLoader.LoadArray<string>(InputLocation);
 
@@ -17,7 +17,7 @@ namespace AdventOfCode._2021
             return lowPoints.Sum(p => map[p.X, p.Y] + 1);
         }
 
-        public override long PartB()
+        public override object PartB()
         {
             var input = inputLoader.LoadArray<string>(InputLocation);
 

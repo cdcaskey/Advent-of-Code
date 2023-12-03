@@ -5,7 +5,7 @@ namespace AdventOfCode._2020
 {
     public class Day06(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override long PartA()
+        public override object PartA()
         {
             var input = inputLoader.LoadArray<string>(InputLocation, "\r\n\r\n");
 
@@ -24,7 +24,7 @@ namespace AdventOfCode._2020
             return count;
         }
 
-        public override long PartB()
+        public override object PartB()
         {
             var input = inputLoader.LoadArray<string>(InputLocation, "\r\n\r\n");
 

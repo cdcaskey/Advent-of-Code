@@ -6,7 +6,7 @@ namespace AdventOfCode._2021
 {
     public class Day07(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override long PartA()
+        public override object PartA()
         {
             var input = inputLoader.LoadArray<int>(InputLocation, ",");
 
@@ -41,7 +41,7 @@ namespace AdventOfCode._2021
             return minFuel;
         }
 
-        public override long PartB()
+        public override object PartB()
         {
             var input = inputLoader.LoadArray<int>(InputLocation, ",");
 

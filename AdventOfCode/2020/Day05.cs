@@ -4,7 +4,7 @@ namespace AdventOfCode._2020
 {
     public class Day05(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override long PartA()
+        public override object PartA()
         {
             var input = inputLoader.LoadArray<string>(InputLocation);
 
@@ -24,7 +24,7 @@ namespace AdventOfCode._2020
             return maxId;
         }
 
-        public override long PartB()
+        public override object PartB()
         {
             var input = inputLoader.LoadArray<string>(InputLocation);
             var seats = new int[128, 8];

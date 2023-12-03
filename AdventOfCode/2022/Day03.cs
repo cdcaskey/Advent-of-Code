@@ -6,11 +6,7 @@ namespace AdventOfCode._2022
 {
     public class Day03(IInputLoader loader) : CodeChallenge(loader)
     {
-        public override int Year => 2022;
-
-        public override int Day => 3;
-
-        public override long PartA()
+        public override object PartA()
         {
             var input = inputLoader.LoadArray<string>(InputLocation);
 
@@ -37,7 +33,7 @@ namespace AdventOfCode._2022
             return priority;
         }
 
-        public override long PartB()
+        public override object PartB()
         {
             var input = inputLoader.LoadArray<string>(InputLocation);
 
