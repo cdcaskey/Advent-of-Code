@@ -22,7 +22,7 @@ namespace AdventOfCode
                 Console.Clear();
                 ChristmasHeader("AdventOfCode");
             }
-            
+
             while (true)
             {
                 var year = SelectYear();
@@ -84,7 +84,7 @@ namespace AdventOfCode
             Console.Write("Select a year (or 'q' to exit): ");
 
             var yearString = Console.ReadLine();
-            var yearParsed = int.TryParse(yearString, out int year);
+            var yearParsed = int.TryParse(yearString, out var year);
 
             while (yearString.ToUpper() != "Q" &&
                    !yearParsed &&
@@ -142,7 +142,7 @@ namespace AdventOfCode
 
         private static void ChristmasWrite(string text, ConsoleColor colour1 = ConsoleColor.Red, ConsoleColor colour2 = ConsoleColor.DarkGreen)
         {
-            bool useColour1 = true;
+            var useColour1 = true;
             foreach (var line in text.Split(Environment.NewLine))
             {
                 Console.ForegroundColor = useColour1 ? colour1 : colour2;
@@ -157,7 +157,7 @@ namespace AdventOfCode
         {
             var headerLength = text.Length;
             var textToWrite = new string('=', headerLength + 4) + $"\r\n  {text}  \r\n" + new string('=', headerLength + 4);
-            ChristmasWrite(textToWrite, ConsoleColor.Red, ConsoleColor.DarkGreen);
+            ChristmasWrite(textToWrite, colour1, colour2);
         }
     }
 }
