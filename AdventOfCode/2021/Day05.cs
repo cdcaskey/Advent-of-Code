@@ -8,10 +8,6 @@ namespace AdventOfCode._2021
     {
         public Day05(IInputLoader loader) : base(loader) { }
 
-        public override int Year => 2021;
-
-        public override int Day => 5;
-
         public override long PartA()
         {
             var lines = ParseLines(out var maxX, out var maxY);
