@@ -15,8 +15,8 @@ namespace AdventOfCode.Tests._2021
         {
             loader = new Mock<IInputLoader>();
             loader.Setup(x => x.LoadArray<string>(It.IsAny<string>(), It.IsAny<string>()))
-                  .Returns(new string []
-                  {
+                  .Returns(
+                  [
                       "be cfbegad cbdgef fgaecd cgeb fdcge agebfd fecdb fabcd edb | fdgacbe cefdb cefbgd gcbe",
                       "edbfga begcd cbg gc gcadebf fbgde acbgfd abcde gfcbed gfec | fcgedb cgb dgebacf gc",
                       "fgaebd cg bdaec gdafb agbcfd gdcbef bgcad gfac gcb cdgabef | cg cg fdcagb cbg",
@@ -27,7 +27,7 @@ namespace AdventOfCode.Tests._2021
                       "bdfegc cbegaf gecbf dfcage bdacg ed bedf ced adcbefg gebcd | ed bcgafe cdgba cbgef",
                       "egadfb cdbfeg cegd fecab cgb gbdefca cg fgcdab egfdb bfceg | gbdfcae bgc cg cgb",
                       "gcafb gcf dcaebfg ecagb gf abcdeg gaef cafbge fdbac fegbdc | fgae cfgab fg bagce"
-                  });
+                  ]);
         }
 
         [Test]
@@ -56,6 +56,6 @@ namespace AdventOfCode.Tests._2021
             result.ShouldBe(61229);
         }
 
-        private Day08 CreateSut() => new Day08(loader.Object);
+        private Day08 CreateSut() => new(loader.Object);
     }
 }

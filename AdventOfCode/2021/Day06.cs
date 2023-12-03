@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace AdventOfCode._2021
 {
-    public class Day06 : CodeChallenge
+    public class Day06(IInputLoader loader) : CodeChallenge(loader)
     {
-        public Day06(IInputLoader loader) : base(loader) { }
-
         public override long PartA() => Simulate(80);
 
         public override long PartB() => Simulate(256);
@@ -22,7 +17,7 @@ namespace AdventOfCode._2021
                 fish[i] = 0;
             }
 
-            var startFish = inputLoader.LoadArray<int>(inputLocation, ",");
+            var startFish = inputLoader.LoadArray<int>(InputLocation, ",");
             foreach (var f in startFish)
             {
                 fish[f]++;

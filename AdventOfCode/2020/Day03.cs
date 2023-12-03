@@ -1,19 +1,17 @@
 ﻿namespace AdventOfCode._2020
 {
-    public class Day03 : CodeChallenge
+    public class Day03(IInputLoader loader) : CodeChallenge(loader)
     {
-        public Day03(IInputLoader loader) : base(loader) { }
-
         public override long PartA()
         {
-            var slope = inputLoader.LoadArray<string>(inputLocation);
+            var slope = inputLoader.LoadArray<string>(InputLocation);
 
             return CalculateTrees(slope, 3, 1);
         }
 
         public override long PartB()
         {
-            var slope = inputLoader.LoadArray<string>(inputLocation);
+            var slope = inputLoader.LoadArray<string>(InputLocation);
 
             var trees = 1;
 
@@ -26,7 +24,7 @@
             return trees;
         }
 
-        private int CalculateTrees(string[] slope, int xStep, int yStep)
+        private static int CalculateTrees(string[] slope, int xStep, int yStep)
         {
             var trees = 0;
             for (int x = 0, y = 0; y < slope.Length; x += xStep, y += yStep)

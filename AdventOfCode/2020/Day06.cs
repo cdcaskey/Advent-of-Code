@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace AdventOfCode._2020
 {
-    public class Day06 : CodeChallenge
+    public class Day06(IInputLoader loader) : CodeChallenge(loader)
     {
-        public Day06(IInputLoader loader) : base(loader) { }
-
         public override long PartA()
         {
-            var input = inputLoader.LoadArray<string>(inputLocation, "\r\n\r\n");
+            var input = inputLoader.LoadArray<string>(InputLocation, "\r\n\r\n");
 
             var count = 0;
             foreach(var group in input)
@@ -29,7 +26,7 @@ namespace AdventOfCode._2020
 
         public override long PartB()
         {
-            var input = inputLoader.LoadArray<string>(inputLocation, "\r\n\r\n");
+            var input = inputLoader.LoadArray<string>(InputLocation, "\r\n\r\n");
 
             var count = 0;
             foreach (var group in input)

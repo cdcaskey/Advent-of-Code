@@ -62,6 +62,6 @@ namespace AdventOfCode.Tests._2021
             result.ShouldBe(1924);
         }
 
-        private Day04 CreateSut() => new Day04(loader.Object);
+        private Day04 CreateSut() => new(loader.Object);
     }
 }

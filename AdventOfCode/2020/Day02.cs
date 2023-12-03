@@ -4,13 +4,11 @@ using System.Text.RegularExpressions;
 
 namespace AdventOfCode._2020
 {
-    public class Day02 : CodeChallenge
+    public class Day02(IInputLoader loader) : CodeChallenge(loader)
     {
-        public Day02(IInputLoader loader) : base(loader) { }
-
         public override long PartA()
         {
-            var input = inputLoader.LoadArray<string>(inputLocation);
+            var input = inputLoader.LoadArray<string>(InputLocation);
 
             var validPasswords = 0;
             foreach (var line in input)
@@ -35,7 +33,7 @@ namespace AdventOfCode._2020
 
         public override long PartB()
         {
-            var input = inputLoader.LoadArray<string>(inputLocation);
+            var input = inputLoader.LoadArray<string>(InputLocation);
 
             var validPasswords = 0;
             foreach (var line in input)

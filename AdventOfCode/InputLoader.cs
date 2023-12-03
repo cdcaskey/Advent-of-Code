@@ -32,10 +32,7 @@ namespace AdventOfCode
             return output;
         }
 
-        private static T ConvertType<T>(string input)
-        {
-            return (T)Convert.ChangeType(input, typeof(T));
-        }
+        private static T ConvertType<T>(string input) => (T)Convert.ChangeType(input, typeof(T));
 
         private static T[] BuildArray<T>(string rawInput, string arrayDelimiter = "\r\n")
         {

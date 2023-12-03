@@ -2,13 +2,11 @@
 
 namespace AdventOfCode._2020
 {
-    public class Day01 : CodeChallenge
+    public class Day01(IInputLoader loader) : CodeChallenge(loader)
     {
-        public Day01(IInputLoader loader) : base(loader) { }
-
         public override long PartA()
         {
-            var input = inputLoader.LoadArray<int>(inputLocation);
+            var input = inputLoader.LoadArray<int>(InputLocation);
 
             for (var i = 0; i < input.Length; i++)
             {
@@ -30,7 +28,7 @@ namespace AdventOfCode._2020
 
         public override long PartB()
         {
-            var input = inputLoader.LoadArray<int>(inputLocation);
+            var input = inputLoader.LoadArray<int>(InputLocation);
 
             for (var i = 0; i < input.Length; i++)
             {

@@ -4,13 +4,11 @@ using System.Linq;
 
 namespace AdventOfCode._2021
 {
-    public class Day04 : CodeChallenge
+    public class Day04(IInputLoader loader) : CodeChallenge(loader)
     {
-        public Day04(IInputLoader loader) : base(loader) { }
-
         public override long PartA()
         {
-            var input = inputLoader.LoadInput(inputLocation);
+            var input = inputLoader.LoadInput(InputLocation);
             var drawnNumbers = ParseDrawnNumbers(input);
             var boards = ParseBoards(input);
 
@@ -31,7 +29,7 @@ namespace AdventOfCode._2021
 
         public override long PartB()
         {
-            var input = inputLoader.LoadInput(inputLocation);
+            var input = inputLoader.LoadInput(InputLocation);
             var drawnNumbers = ParseDrawnNumbers(input);
             var boards = ParseBoards(input);
 
@@ -42,7 +40,7 @@ namespace AdventOfCode._2021
                     if (board.MarkNumber(number))
                     {
                         // If the final board has just been cleared, calculate its score
-                        if (boards.Count(b => !b.Complete) == 0)
+                        if (!boards.Any(b => !b.Complete))
                         {
                             var unmarkedNumberTotal = board.GetScore();
                             return unmarkedNumberTotal * number;
@@ -85,11 +83,11 @@ namespace AdventOfCode._2021
 
         private class BingoBoard
         {
-            private int?[,] Board = new int?[5, 5];
+            private readonly int?[,] Board = new int?[5, 5];
 
             public BingoBoard(string numbers)
             {
-                var values = numbers.Split(new char[]{' ', '\r', '\n'}, StringSplitOptions.RemoveEmptyEntries);
+                var values = numbers.Split(new char[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
                 for (int i = 0, y = 0; y < 5; y++)
                 {
@@ -109,7 +107,7 @@ namespace AdventOfCode._2021
             /// <returns>true if the number being marked results in the board being complete.</returns>
             public bool MarkNumber(int number)
             {
-                bool numberMarked = false;
+                var numberMarked = false;
 
                 for (var y = 0; y < 5; y++)
                 {

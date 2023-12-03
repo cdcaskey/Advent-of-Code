@@ -9,7 +9,7 @@ namespace AdventOfCode
     {
         static ServiceProvider provider;
 
-        static void Main(string[] args)
+        static void Main()
         {
             provider = RegisterServices();
 

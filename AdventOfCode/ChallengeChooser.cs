@@ -4,14 +4,9 @@ using System.Linq;
 
 namespace AdventOfCode
 {
-    public class ChallengeChooser
+    public class ChallengeChooser(IEnumerable<ICodeChallenge> challenges)
     {
-        private readonly IEnumerable<ICodeChallenge> challenges;
-
-        public ChallengeChooser(IEnumerable<ICodeChallenge> challenges)
-        {
-            this.challenges = challenges;
-        }
+        private readonly IEnumerable<ICodeChallenge> challenges = challenges;
 
         public void Start()
         {
@@ -86,7 +81,7 @@ namespace AdventOfCode
             var yearString = Console.ReadLine();
             var yearParsed = int.TryParse(yearString, out var year);
 
-            while (yearString.ToUpper() != "Q" &&
+            while (!yearString.Equals("Q", StringComparison.CurrentCultureIgnoreCase) &&
                    !yearParsed &&
                    !availableYears.Contains(year))
             {
@@ -121,7 +116,7 @@ namespace AdventOfCode
                 var selectedDayString = Console.ReadLine();
                 Console.WriteLine();
 
-                if (selectedDayString.ToUpper() == "Q")
+                if (selectedDayString.Equals("Q", StringComparison.CurrentCultureIgnoreCase))
                 {
                     return null;
                 }

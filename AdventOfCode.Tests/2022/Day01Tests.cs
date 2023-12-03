@@ -16,14 +16,14 @@ namespace AdventOfCode.Tests._2022
         {
             loader = new Mock<IInputLoader>();
             loader.Setup(x => x.LoadListOfArrays<int>(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>()))
-                  .Returns(new List<int[]>()
-                  {
-                      new int[] { 1000, 2000, 3000},
-                      new int[] { 4000 },
-                      new int[] { 5000, 6000 },
-                      new int[] { 7000, 8000, 9000 },
-                      new int[] { 10000 }
-                  });
+                  .Returns(
+                  [
+                      [1000, 2000, 3000],
+                      [4000],
+                      [5000, 6000],
+                      [7000, 8000, 9000],
+                      [10000]
+                  ]);
         }
 
         [Test]

@@ -1,23 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace AdventOfCode._2020
 {
-    public class Day05 : CodeChallenge
+    public class Day05(IInputLoader loader) : CodeChallenge(loader)
     {
-        public Day05(IInputLoader loader) : base(loader) { }
-
         public override long PartA()
         {
-            var input = inputLoader.LoadArray<string>(inputLocation);
+            var input = inputLoader.LoadArray<string>(InputLocation);
 
             var maxId = 0;
             foreach (var password in input)
             {
-                var seat = CalculateSeat(password);
+                var (Row, Column) = CalculateSeat(password);
 
-                var id = (8 * seat.Row) + seat.Column;
+                var id = (8 * Row) + Column;
 
                 if (id > maxId)
                 {
@@ -30,13 +26,13 @@ namespace AdventOfCode._2020
 
         public override long PartB()
         {
-            var input = inputLoader.LoadArray<string>(inputLocation);
+            var input = inputLoader.LoadArray<string>(InputLocation);
             var seats = new int[128, 8];
 
             foreach (var password in input)
             {
-                var seat = CalculateSeat(password);
-                seats[seat.Row, seat.Column] = CalculateId(seat.Row, seat.Column);
+                var (Row, Column) = CalculateSeat(password);
+                seats[Row, Column] = CalculateId(Row, Column);
             }
 
             for (var y = 0; y < 128; y++)
@@ -57,7 +53,7 @@ namespace AdventOfCode._2020
             throw new Exception("Could not find an empty seat.");
         }
 
-        private (int Row, int Column) CalculateSeat(string input)
+        private static (int Row, int Column) CalculateSeat(string input)
         {
             var minRow = 0;
             var maxRow = 128;
@@ -92,9 +88,9 @@ namespace AdventOfCode._2020
             return (minRow, minCol);
         }
 
-        private int CalculateId(int row, int column) => 8 * row + column;
+        private static int CalculateId(int row, int column) => 8 * row + column;
 
-        private bool TwoDimensionArrayContains(int[,] array, int value)
+        private static bool TwoDimensionArrayContains(int[,] array, int value)
         {
             var width = array.GetLength(0);
             var height = array.GetLength(1);

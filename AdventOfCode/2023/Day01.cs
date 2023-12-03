@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
+﻿using System.Collections.Generic;
 
 namespace AdventOfCode._2023
 {
-    public class Day01 : CodeChallenge
+    public class Day01(IInputLoader loader) : CodeChallenge(loader)
     {
         private readonly Dictionary<string, string> spelledNumbers = new()
         {
@@ -21,17 +17,15 @@ namespace AdventOfCode._2023
             { "nine", "9" }
         };
 
-        public Day01(IInputLoader loader) : base(loader) { }
-
         public override long PartA()
         {
-            var input = inputLoader.LoadArray<string>(inputLocation);
+            var input = inputLoader.LoadArray<string>(InputLocation);
             return CalculateCalibration(input, false);
         }
 
         public override long PartB()
         {
-            var input = inputLoader.LoadArray<string>(inputLocation);
+            var input = inputLoader.LoadArray<string>(InputLocation);
             return CalculateCalibration(input, true);
         }
 

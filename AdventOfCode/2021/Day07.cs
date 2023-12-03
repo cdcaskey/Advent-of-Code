@@ -1,23 +1,19 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace AdventOfCode._2021
 {
-    public class Day07 : CodeChallenge
+    public class Day07(IInputLoader loader) : CodeChallenge(loader)
     {
-        public Day07(IInputLoader loader) : base(loader) { }
-
         public override long PartA()
         {
-            var input = inputLoader.LoadArray<int>(inputLocation, ",");
+            var input = inputLoader.LoadArray<int>(InputLocation, ",");
 
             var crabs = new Dictionary<int, int>();
             foreach (var crab in input)
             {
-                if (crabs.TryGetValue(crab, out var existingNumber))
+                if (crabs.TryGetValue(crab, out _))
                 {
                     crabs[crab]++;
                 }
@@ -47,12 +43,12 @@ namespace AdventOfCode._2021
 
         public override long PartB()
         {
-            var input = inputLoader.LoadArray<int>(inputLocation, ",");
+            var input = inputLoader.LoadArray<int>(InputLocation, ",");
 
             var crabs = new Dictionary<int, int>();
             foreach (var crabGroup in input)
             {
-                if (crabs.TryGetValue(crabGroup, out var existingNumber))
+                if (crabs.TryGetValue(crabGroup, out _))
                 {
                     crabs[crabGroup]++;
                 }

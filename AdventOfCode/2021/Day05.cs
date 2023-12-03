@@ -4,10 +4,8 @@ using System.Text.RegularExpressions;
 
 namespace AdventOfCode._2021
 {
-    public class Day05 : CodeChallenge
+    public class Day05(IInputLoader loader) : CodeChallenge(loader)
     {
-        public Day05(IInputLoader loader) : base(loader) { }
-
         public override long PartA()
         {
             var lines = ParseLines(out var maxX, out var maxY);
@@ -106,7 +104,7 @@ namespace AdventOfCode._2021
 
         private List<Line> ParseLines(out int maxX, out int maxY)
         {
-            var input = inputLoader.LoadInput(inputLocation);
+            var input = inputLoader.LoadInput(InputLocation);
             var lines = new List<Line>();
             maxX = 0;
             maxY = 0;
@@ -130,23 +128,15 @@ namespace AdventOfCode._2021
             return lines;
         }
 
-        private class Line
+        private class Line(int startX, int startY, int endX, int endY)
         {
-            public int StartX { get; set; }
+            public int StartX { get; set; } = startX;
 
-            public int StartY { get; set; }
+            public int StartY { get; set; } = startY;
 
-            public int EndX { get; set; }
+            public int EndX { get; set; } = endX;
 
-            public int EndY { get; set; }
-
-            public Line(int startX, int startY, int endX, int endY)
-            {
-                StartX = startX;
-                StartY = startY;
-                EndX = endX;
-                EndY = endY;
-            }
+            public int EndY { get; set; } = endY;
 
             public bool IsHorizontalOrVertical() => (StartX - EndX == 0) || (StartY - EndY == 0);
 

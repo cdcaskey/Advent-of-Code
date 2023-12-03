@@ -3,13 +3,11 @@ using System.Linq;
 
 namespace AdventOfCode._2022
 {
-    public class Day01 : CodeChallenge
+    public class Day01(IInputLoader loader) : CodeChallenge(loader)
     {
-        public Day01(IInputLoader loader) : base(loader) { }
-
         public override long PartA()
         {
-            var input = inputLoader.LoadListOfArrays<int>(inputLocation);
+            var input = inputLoader.LoadListOfArrays<int>(InputLocation);
 
             var elfCalories = new List<int>();
             foreach (var elf in input)
@@ -22,7 +20,7 @@ namespace AdventOfCode._2022
 
         public override long PartB()
         {
-            var input = inputLoader.LoadListOfArrays<int>(inputLocation);
+            var input = inputLoader.LoadListOfArrays<int>(InputLocation);
 
             var elfCalories = new List<int>();
             foreach (var elf in input)

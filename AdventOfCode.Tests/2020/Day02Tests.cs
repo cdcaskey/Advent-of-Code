@@ -15,12 +15,12 @@ namespace AdventOfCode.Tests._2020
         {
             loader = new Mock<IInputLoader>();
             loader.Setup(x => x.LoadArray<string>(It.IsAny<string>(), It.IsAny<string>()))
-                  .Returns(new string[]
-                  {
+                  .Returns(
+                  [
                       "1-3 a: abcde",
                       "1-3 b: cdefg",
                       "2-9 c: ccccccccc"
-                  });
+                  ]);
         }
 
         [Test]
@@ -49,6 +49,6 @@ namespace AdventOfCode.Tests._2020
             result.ShouldBe(1);
         }
 
-        private Day02 CreateSut() => new Day02(loader.Object);
+        private Day02 CreateSut() => new(loader.Object);
     }
 }

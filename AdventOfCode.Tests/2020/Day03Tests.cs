@@ -15,8 +15,8 @@ namespace AdventOfCode.Tests._2020
         {
             loader = new Mock<IInputLoader>();
             loader.Setup(x => x.LoadArray<string>(It.IsAny<string>(), It.IsAny<string>()))
-                  .Returns(new string[]
-                  {
+                  .Returns(
+                  [
                       "..##.......",
                       "#...#...#..",
                       ".#....#..#.",
@@ -28,7 +28,7 @@ namespace AdventOfCode.Tests._2020
                       "#.##...#...",
                       "#...##....#",
                       ".#..#...#.#"
-                  });
+                  ]);
         }
 
         [Test]
@@ -57,6 +57,6 @@ namespace AdventOfCode.Tests._2020
             result.ShouldBe(336);
         }
 
-        private Day03 CreateSut() => new Day03(loader.Object);
+        private Day03 CreateSut() => new(loader.Object);
     }
 }
