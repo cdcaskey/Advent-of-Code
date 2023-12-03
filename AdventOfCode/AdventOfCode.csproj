@@ -7,78 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Inputs\2020\Day01.txt" />
-    <None Remove="Inputs\2020\Day02.txt" />
-    <None Remove="Inputs\2020\Day03.txt" />
-    <None Remove="Inputs\2020\Day04.txt" />
-    <None Remove="Inputs\2020\Day05.txt" />
-    <None Remove="Inputs\2020\Day06.txt" />
-    <None Remove="Inputs\2021\Day01.txt" />
-    <None Remove="Inputs\2021\Day02.txt" />
-    <None Remove="Inputs\2021\Day03.txt" />
-    <None Remove="Inputs\2021\Day04.txt" />
-    <None Remove="Inputs\2021\Day05.txt" />
-    <None Remove="Inputs\2021\Day06.txt" />
-    <None Remove="Inputs\2021\Day09.txt" />
+    <Content Include="Inputs\**\*.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Inputs\2020\Day01.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Inputs\2020\Day02.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Inputs\2020\Day03.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Inputs\2020\Day04.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Inputs\2020\Day05.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Inputs\2020\Day06.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Inputs\2021\Day01.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Inputs\2021\Day02.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Inputs\2021\Day03.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Inputs\2021\Day04.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Inputs\2021\Day05.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Inputs\2021\Day06.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Inputs\2021\Day09.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Remove="Inputs\**\*.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Inputs\2020\Day01.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Inputs\2022\Day01.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="Inputs\2023\Day01.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>
