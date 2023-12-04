@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace AdventOfCode
 {
@@ -45,6 +46,32 @@ namespace AdventOfCode
             }
 
             return output;
+        }
+
+        public char[,] LoadGridofChars(string filePath, out int maxX, out int maxY, char fillChar = ' ', string arrayDelimiter = "\r\n")
+        {
+            var input = LoadArray<string>(filePath, arrayDelimiter);
+
+            maxX = input.Length;
+            maxY = input.Max(x => x.Length);
+
+            var grid = new char[input.Max(x => x.Length), input.Length];
+            for (var y = 0; y < maxY; y++)
+            {
+                for (var x = 0; x < maxX; x++)
+                {
+                    if (x >= input[y].Length)
+                    {
+                        grid[x, y] = fillChar;
+                    }
+                    else
+                    {
+                        grid[x, y] = input[y][x];
+                    }
+                }
+            }
+
+            return grid;
         }
     }
 }
